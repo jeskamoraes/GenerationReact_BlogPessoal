@@ -88,7 +88,7 @@ return (
                     <TextField
                         value={user.nome}
                         onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
-                        id='nome' label='nome' variant='outlined'
+                        id='nome' label='Nome' variant='outlined'
                         name='nome' margin='normal' fullWidth 
                         placeholder='Insira seu nome'
                         required />
@@ -96,23 +96,23 @@ return (
                     <TextField
                         value={user.foto}
                         onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
-                        id='foto' label='foto' variant='outlined'
+                        id='foto' label='Foto' variant='outlined'
                         name='foto' margin='normal' fullWidth 
-                        placeholder='Insira um link de foto'
-                        required />
+                        placeholder='Insira o link da foto'
+                        />
 
                     <TextField
                         value={user.usuario}
                         onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
-                        id='usuario' label='usuario' variant='outlined'
+                        id='usuario' label='Usuário' variant='outlined'
                         name='usuario' margin='normal' fullWidth 
-                        placeholder='Insira um email válido'
+                        placeholder='email@email.com'
                         required />
 
                     <TextField
                         value={user.senha}
                         onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
-                        id='senha' label='senha' variant='outlined'
+                        id='senha' label='Senha' variant='outlined'
                         name='senha' margin='normal' type='password' fullWidth 
                         placeholder='Insira no mínimo 8 caracteres'
                         required />
@@ -120,7 +120,7 @@ return (
                     <TextField
                         value={confirmarSenha}
                         onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)}
-                        id='confirmarSenha' label='confirmarSenha' variant='outlined'
+                        id='confirmarSenha' label='Confirme a senha' variant='outlined'
                         name='confirmarSenha' margin='normal' type='password' fullWidth 
                         placeholder='Insira novamente a senha'
                         required />

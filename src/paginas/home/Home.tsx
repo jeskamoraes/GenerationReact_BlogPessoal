@@ -5,11 +5,20 @@ import TabPostagem from '../../components/postagens/tabpostagem/TabPostagem';
 import ModalPostagem from '../../components/postagens/modalPostagem/ModalPostagem';
 import { Link, useNavigate } from 'react-router-dom';
 import useLocalStorage from 'react-use-localstorage';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../store/tokens/TokensReducer';
+import { Token } from 'typescript';
 
 function Home() {
 
     let history = useNavigate();
-    const [token, setToken] = useLocalStorage('token');
+    // const [token, setToken] = useLocalStorage('token');
+    
+    // Acessa a redux (que está lá na store) e pega a informação que precisamos, nesse caso, o token
+    // <Estrutura, informação>
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+    )
     
     useEffect(() => {
       if (token == "") {

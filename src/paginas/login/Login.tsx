@@ -4,15 +4,24 @@ import { Link } from 'react-router-dom';
 import UserLogin from '../../models/UserLogin';
 import'./Login.css';
 import { useNavigate } from 'react-router-dom';
-import useLocalStorage from 'react-use-localstorage';
+// import useLocalStorage from 'react-use-localstorage';
 import { login } from '../../services/Service';
+import { useDispatch } from 'react-redux';
+import { addToken } from '../../store/tokens/Action';
 
 
 function Login() {
     // Redireciona o usuário para determinada pagina
     let history = useNavigate();
+   
     // Hooks que vão manipular o nosso Local Storage para gravar o Token
-    const[token, setToken] = useLocalStorage('token');
+    // const[token, setToken] = useLocalStorage('token');
+    
+    const [token, setToken] = useState('')
+
+    // Informar quando vai disparar a action
+    const dispatch = useDispatch()
+
     // useState define como uma determinada variavel será inicializada quando o Comp. for renderizado
     const[userLogin, setUserLogin] = useState<UserLogin> (
         {
@@ -35,6 +44,7 @@ function Login() {
      // Hook de efeito colateral, sempre executa uma função quando o que estiver no seu Array é alterado
         useEffect(() => {
             if (token != ''){
+                dispatch(addToken(token))
                 history('/posts')
             }
         }, [token])
@@ -53,36 +63,38 @@ function Login() {
     }
     
     return(
-        <Grid container direction='row' justifyContent='center' alignItems='center'>
-            <Grid alignItems='center' xs = {6}>
-                <Box paddingX={20}>
-                    <form onSubmit={onSubmit}>
-                        <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='textos'>Entrar</Typography>
-                        <TextField value={userLogin.usuario} onChange={(e:ChangeEvent<HTMLInputElement>)=>updatedModel(e)} id='usuario' label='usuário' variant='outlined' name='usuario' margin='normal' fullWidth />
-                        <TextField value={userLogin.senha} onChange={(e:ChangeEvent<HTMLInputElement>)=>updatedModel(e)} id='senha' label='senha' variant='outlined' name='senha' margin='normal' type='password' fullWidth />
+        <Grid container className='container'>
+            <Grid xs = {12} className='container-box'>
+                <Box paddingX={20} className='box-login'>
+                  <Box>
+                  <form onSubmit={onSubmit}>
+                        <Typography variant='h3' gutterBottom color='textPrimary' component='h3' className='textos'>Login</Typography>
+                        <TextField value={userLogin.usuario} onChange={(e:ChangeEvent<HTMLInputElement>)=>updatedModel(e)} id='usuario' label='Usuário' variant='standard' name='usuario' margin='normal' required fullWidth />
+                        <TextField value={userLogin.senha} onChange={(e:ChangeEvent<HTMLInputElement>)=>updatedModel(e)} id='senha' label='Senha' variant='standard' name='senha' margin='normal' type='password' required fullWidth />
                         <Box marginTop={2} textAlign='center'>
                            
-                                <Button type='submit' variant='contained' color='primary'>
+                                <Button className='login-btn' type='submit' variant='contained' color='primary'>
                                     Logar
                                 </Button>
                             
                         </Box>
                     </form>
-                    <Box display='flex' justifyContent='center' marginTop={2}>
-                        <Box marginRight={1}>
-                            <Typography variant='subtitle1' gutterBottom align='center'>Não tem uma conta?</Typography>
+                    <Box marginTop={2} className='box-button'>
+                        <Box marginRight={1} >
+                            <Typography variant='subtitle1' gutterBottom className='textos2'>Não tem uma conta?</Typography>
                         </Box>
                         <Link to='/cadastrousuario'>
-                        <Typography variant='subtitle1' gutterBottom align='center' className='textos'>Cadastre-se</Typography>
+                        <Typography variant='subtitle1' gutterBottom className='textos'>Cadastre-se</Typography>
                         </Link>
                             
                     </Box>
+                  </Box>
                 </Box>
             </Grid>
 
-            <Grid xs = {6} className='imagem'>
+            {/* <Grid xs = {6} className='imagem'>
 
-            </Grid>
+            </Grid> */}
         </Grid>
 
 
