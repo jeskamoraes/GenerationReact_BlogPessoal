@@ -5,6 +5,7 @@ import { cadastroUsuario } from '../../services/Service';
 import { Grid, Box, Typography, Button, TextField } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import './CadastroUsuario.css';
+import { toast } from 'react-toastify';
 
 function CadastroUsuario() {
 
@@ -30,7 +31,7 @@ function CadastroUsuario() {
         })
 
     useEffect(() => {
-        if (userResult.id != 0) {
+        if (userResult.id !== 0) {
             navigate("/login")
         }
     }, [userResult])
@@ -54,22 +55,29 @@ function CadastroUsuario() {
 
         // Estrutura Condicional que verifica se as senhas batem e se a Senha tem mais de 8 caracteres
         if (confirmarSenha === user.senha && user.senha.length >= 8) {
-
-            //Tenta executar o cadastro
-            try {
                 cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
-                alert('Usuario cadastrado com sucesso')
-
-                //Se houver erro, pegue o Erro e retorna uma msg
-            } catch (error) {
-                console.log(`Error: ${error}`)
-
-                //Pode modificar a msg de acordo com o erro 
-                alert("Erro ao cadastrar o Usuário")
-            }
+                toast.success('usuário cadastrado com sucesso', {
+                    position: 'top-right',
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false, // Mover a notificação de local
+                    theme: 'colored',
+                    progress: undefined,
+                });            
 
         } else {
-            alert('Dados inconsistentes. Verifique as informações de cadastro.')
+            toast.error('Dados inconsistentes. Verifique as informações de cadastro.', {
+                position: 'top-right',
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false, // Mover a notificação de local
+                theme: 'colored',
+                progress: undefined,
+            });
 
             setUser({ ...user, senha: "" }) // Reinicia o campo de Senha
             setConfirmarSenha("")           // Reinicia o campo de Confirmar Senha
@@ -90,7 +98,7 @@ function CadastroUsuario() {
                         <TextField
                             value={user.nome}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
-                            id='nome' label='Nome' variant='standard'
+                            id='nome' label='nome' variant='outlined'
                             name='nome' margin='normal' fullWidth
                             placeholder='Insira seu nome'
                             required />
@@ -98,7 +106,7 @@ function CadastroUsuario() {
                         <TextField
                             value={user.foto}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
-                            id='foto' label='Foto' variant='standard'
+                            id='foto' label='foto' variant='outlined'
                             name='foto' margin='normal' fullWidth
                             placeholder='Insira o link da foto'
                         />
@@ -106,7 +114,7 @@ function CadastroUsuario() {
                         <TextField
                             value={user.usuario}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
-                            id='usuario' label='Usuário' variant='standard'
+                            id='usuario' label='usuario' variant='outlined'
                             name='usuario' margin='normal' fullWidth
                             placeholder='email@email.com'
                             required />
@@ -114,7 +122,7 @@ function CadastroUsuario() {
                         <TextField
                             value={user.senha}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
-                            id='senha' label='Senha' variant='standard'
+                            id='senha' label='senha' variant='outlined'
                             name='senha' margin='normal' type='password' fullWidth
                             placeholder='Insira no mínimo 8 caracteres'
                             required />
@@ -122,7 +130,7 @@ function CadastroUsuario() {
                         <TextField
                             value={confirmarSenha}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)}
-                            id='confirmarSenha' label='Confirme a senha' variant='standard'
+                            id='confirmarSenha' label='confirmarSenha' variant='outlined'
                             name='confirmarSenha' margin='normal' type='password' fullWidth
                             placeholder='Insira novamente a senha'
                             required />

@@ -1,24 +1,41 @@
-.caixa{
-    background-color: #0a996f;
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+.container-home {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    background-color: #000;
 } 
 
-.titulo{
+.container-principal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 92vh;
+}
+
+.titulo-home {
+    font-family: 'Roboto Mono', sans-serif !important;
     color: white !important;
     font-weight: bold 
 }
 
-.botao{
+.botao {
+    font-family: 'Roboto Mono', sans-serif !important;
     border-color: white !important;
     background-color: #4169E1;
     color: white !important;
 }
 
-.postagens{
+.postagens {
     background-color:white !important;
 }
 
-.image{
-    background-image: url('./assets/home.png');
+.image-home {
+    background-image: url('./assets/moritz-kindler-Ls2-vAmY3ig-unsplash.jpg');
+    background-size: cover;
 }
 
 .text-decorator-none {

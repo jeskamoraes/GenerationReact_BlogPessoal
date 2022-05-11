@@ -8,9 +8,9 @@
     height: 2.8rem;
 }
 
-.texto {
+.texto-footer {
     font-family: 'Roboto Mono', sans-serif !important;
-    color: #fff;
+    color: #fff !important;
 }
 
 .redes {

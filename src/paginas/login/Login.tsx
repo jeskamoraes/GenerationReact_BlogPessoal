@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 import UserLogin from '../../models/UserLogin';
 import'./Login.css';
 import { useNavigate } from 'react-router-dom';
-// import useLocalStorage from 'react-use-localstorage';
 import { login } from '../../services/Service';
 import { useDispatch } from 'react-redux';
 import { addToken } from '../../store/tokens/Action';
+import { toast } from 'react-toastify';
 
 
 function Login() {
@@ -43,7 +43,7 @@ function Login() {
     }
      // Hook de efeito colateral, sempre executa uma função quando o que estiver no seu Array é alterado
         useEffect(() => {
-            if (token != ''){
+            if (token !== ''){
                 dispatch(addToken(token))
                 history('/posts')
             }
@@ -55,9 +55,27 @@ function Login() {
         try{
             await login (`/usuarios/logar`, userLogin, setToken)
 
-            alert('Usuário logado com sucesso!');
+            toast.success('Usuário logado com sucesso!', {
+                position: 'top-right',
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false, // Mover a notificação de local
+                theme: 'colored',
+                progress: undefined,
+            });
         } catch(error){
-            alert('Dados dos usuário inconsistentes. Erro ao logar!')
+            toast.error('Erro ao logar. Dados de usuário inconsistentes.', {
+                position: 'top-right',
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false, // Mover a notificação de local
+                theme: 'colored',
+                progress: undefined,
+            });
         }
         
     }
@@ -72,11 +90,9 @@ function Login() {
                         <TextField value={userLogin.usuario} onChange={(e:ChangeEvent<HTMLInputElement>)=>updatedModel(e)} id='usuario' label='Usuário' variant='standard' name='usuario' margin='normal' required fullWidth />
                         <TextField value={userLogin.senha} onChange={(e:ChangeEvent<HTMLInputElement>)=>updatedModel(e)} id='senha' label='Senha' variant='standard' name='senha' margin='normal' type='password' required fullWidth />
                         <Box marginTop={2} textAlign='center'>
-                           
-                                <Button className='login-btn' type='submit' variant='contained' color='primary'>
+                                <Button className='btnAmarelo' type='submit' variant='contained' color='primary'>
                                     Logar
                                 </Button>
-                            
                         </Box>
                     </form>
                     <Box marginTop={2} className='box-button'>
@@ -84,9 +100,8 @@ function Login() {
                             <Typography variant='subtitle1' gutterBottom className='textos2'>Não tem uma conta?</Typography>
                         </Box>
                         <Link to='/cadastrousuario'>
-                        <Typography variant='subtitle1' gutterBottom className='textos'>Cadastre-se</Typography>
-                        </Link>
-                            
+                        <Typography variant='subtitle1' gutterBottom className='text-decorator-none'>Cadastre-se</Typography>
+                        </Link>    
                     </Box>
                   </Box>
                 </Box>

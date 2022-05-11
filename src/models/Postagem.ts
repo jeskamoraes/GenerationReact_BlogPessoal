@@ -7,8 +7,6 @@ interface Postagem {
     texto: string;
     data: string;
     tema?: Tema | null
-
-
 }
 
 export default Postagem;

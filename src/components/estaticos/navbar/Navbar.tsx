@@ -6,6 +6,7 @@ import './Navbar.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/TokensReducer';
 import { addToken } from '../../../store/tokens/Action';
+import { toast } from 'react-toastify';
 
 function Navbar() {
     
@@ -19,7 +20,16 @@ function Navbar() {
 
     function goLogout(){
         dispatch(addToken(''))
-        alert("Usuário deslogado com sucesso!")
+        toast.info('Usuário deslogado', {
+            position: 'top-right',
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false, // Mover a notificação de local
+            theme: 'colored',
+            progress: undefined,
+        });
         history('/login')
     }
 
@@ -28,7 +38,7 @@ function Navbar() {
     if(token !== "") {
         navbarComponent = 
         <AppBar position="static">
-        <Toolbar variant="dense" className='container'>
+        <Toolbar variant="dense" className='container-navbar'>
             <Box mx={2} className='cursor' >
                 <Typography className='font-menu-logo' variant="h5" color="inherit">
                    <h3>Jessica Moraes</h3> 

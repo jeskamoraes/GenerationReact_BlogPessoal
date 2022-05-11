@@ -1,3 +1,21 @@
-.topo{
-    margin-top: 20px;
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+.container-tema {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.cadastro-titulo {
+    font-family: 'Roboto Mono', sans-serif !important;
+    font-size: 2.4rem !important;
+    color: #000 !important;
+}
+
+.btnTema {
+    border: 2px solid #000 !important;
+    background-color: #FFB30F !important;
+    font-family: 'Roboto Mono', sans-serif !important;
+    color: #000 !important;
 }

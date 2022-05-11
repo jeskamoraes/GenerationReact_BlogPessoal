@@ -29,7 +29,7 @@
     padding: 4rem;
 }
 
-.texto{
+.texto {
     font-family: 'Roboto Mono', sans-serif !important;
     /* font-size: 1.8rem !important; */
     font-weight: bold !important;
@@ -38,7 +38,7 @@
     text-shadow: 2px 2px #000;
  }
 
- .text-decorator-none{
+.text-decorator-none{
     text-decoration: none;
 }
 

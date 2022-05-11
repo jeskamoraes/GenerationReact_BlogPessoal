@@ -15,14 +15,14 @@ function Footer() {
 
     var footerComponent;
 
-    if(token != "") {
+    if(token !== "") {
         footerComponent = 
         <Grid container direction="row" justifyContent="center" alignItems="center">
                 <Grid alignItems="center" item xs={12}>
                     <Box className='footer'>
                         <Box>
                             <Box paddingTop={1}>
-                                <Typography className='texto' variant="subtitle2" align="center" gutterBottom>© 2022 Copyright ♥ Jessica Moraes dos Santos</Typography>
+                                <Typography className='texto-footer' variant="subtitle2" align="center" gutterBottom>© 2022 Copyright ♥ Jessica Moraes dos Santos</Typography>
                             </Box>
                         </Box>
                         <Box>
