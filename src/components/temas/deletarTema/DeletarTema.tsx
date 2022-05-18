@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import {Box, Card, CardActions, CardContent, Button, Typography} from '@material-ui/core';
 import './DeletarTema.css';
 import { useNavigate, useParams } from 'react-router-dom';
-import useLocalStorage from 'react-use-localstorage';
 import { buscaId, deleteId } from '../../../services/Service';
 import Tema from '../../../models/Tema';
 import { useSelector } from 'react-redux';
@@ -95,7 +94,7 @@ function DeletarTema() {
                 </Button>
               </Box>
               <Box mx={2}>
-                <Button  onClick={nao} variant="contained" className="btnRosa" size='large' color="secondary">
+                <Button  onClick={nao} variant="contained" className="btnVerde" size='large' color="secondary">
                   Não
                 </Button>
               </Box>

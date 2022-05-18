@@ -93,12 +93,12 @@ function CadastroUsuario() {
             <Grid item xs={6} className='grid-rigth'>
                 <Box className='box-rigth'>
                     <form onSubmit={cadastrar}>
-                        <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='texto'>Cadastre - se</Typography>
+                        <Typography variant='h3' gutterBottom color='textPrimary' component='h5' align='center' className='texto-cadastroUsuario'>Cadastre - se</Typography>
 
                         <TextField
                             value={user.nome}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
-                            id='nome' label='nome' variant='outlined'
+                            id='nome' label='Nome' variant='outlined'
                             name='nome' margin='normal' fullWidth
                             placeholder='Insira seu nome'
                             required />
@@ -106,7 +106,7 @@ function CadastroUsuario() {
                         <TextField
                             value={user.foto}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
-                            id='foto' label='foto' variant='outlined'
+                            id='foto' label='Foto' variant='outlined'
                             name='foto' margin='normal' fullWidth
                             placeholder='Insira o link da foto'
                         />
@@ -114,7 +114,7 @@ function CadastroUsuario() {
                         <TextField
                             value={user.usuario}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
-                            id='usuario' label='usuario' variant='outlined'
+                            id='usuario' label='Usuário' variant='outlined'
                             name='usuario' margin='normal' fullWidth
                             placeholder='email@email.com'
                             required />
@@ -122,7 +122,7 @@ function CadastroUsuario() {
                         <TextField
                             value={user.senha}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
-                            id='senha' label='senha' variant='outlined'
+                            id='senha' label='Senha' variant='outlined'
                             name='senha' margin='normal' type='password' fullWidth
                             placeholder='Insira no mínimo 8 caracteres'
                             required />
@@ -130,18 +130,18 @@ function CadastroUsuario() {
                         <TextField
                             value={confirmarSenha}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)}
-                            id='confirmarSenha' label='confirmarSenha' variant='outlined'
+                            id='confirmarSenha' label='Confirme sua senha' variant='outlined'
                             name='confirmarSenha' margin='normal' type='password' fullWidth
                             placeholder='Insira novamente a senha'
                             required />
 
-                        <Box marginTop={2} textAlign='center'>
+                        <Box marginTop={2} className='btn'>
                             <Link to='/login' className='text-decorator-none'>
-                                <Button variant='contained' color='secondary' className='btnCancelar'>
+                                <Button variant='contained' color='secondary' className='btnRosa'>
                                     Cancelar
                                 </Button>
                             </Link>
-                            <Button type='submit' variant='contained' color='primary' className='btnCadastrar'>
+                            <Button type='submit' variant='contained' color='primary' className='btnAmarelo'>
                                 Cadastrar
                             </Button>
                         </Box>

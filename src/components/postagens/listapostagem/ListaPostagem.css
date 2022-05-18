@@ -1,3 +1,17 @@
 .text-decorator-none{
     text-decoration: none;
 }
+
+.btnRosa {
+    border: 2px solid #000 !important;
+    background-color: #CF0638 !important;
+    font-family: 'Roboto Mono', sans-serif !important;
+    color: #000 !important;
+}
+
+.texto-destaque {
+    font-family: 'Roboto Mono', sans-serif !important;
+    color: #78bc61;
+    opacity: 0.8;
+    margin-top: 10px !important;
+}

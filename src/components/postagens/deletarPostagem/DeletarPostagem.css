@@ -4,16 +4,16 @@
     color: #000 !important;
 }
 
-.deletar {
+.btnVerde {
     border: 2px solid #000 !important;
-    background-color: #FFB30F !important;
+    background-color: #78BC61 !important;
     font-family: 'Roboto Mono', sans-serif !important;
     color: #000 !important;
 }
 
-.NaoDeletar {
+.btnAmarelo {
     border: 2px solid #000 !important;
-    background-color: #85CB33 !important;
+    background-color: #FFB30F !important;
     font-family: 'Roboto Mono', sans-serif !important;
     color: #000 !important;
 }

@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
+* {
+    margin: 0;
+    padding: 0;
+}
+
 .container {
     width: 100vw;
     height: 100vh;
@@ -29,12 +34,17 @@
     padding: 4rem;
 }
 
-.texto {
+.box-rigth form {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.texto-cadastroUsuario {
     font-family: 'Roboto Mono', sans-serif !important;
     /* font-size: 1.8rem !important; */
     font-weight: bold !important;
-    color: #cf0638 !important;
-    text-transform: uppercase;
+    color: #8A2BE2 !important;
     text-shadow: 2px 2px #000;
  }
 
@@ -42,13 +52,8 @@
     text-decoration: none;
 }
 
-.btnCadastrar {
-    background-color: #cf0638 !important;
-    font-family: 'Roboto Mono', sans-serif !important;
-}
-
-.btnCancelar{
-    background-color: #000 !important;
-    margin-right: 20px !important;
-    font-family: 'Roboto Mono', sans-serif !important;
+.btn {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
 }

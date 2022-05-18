@@ -3,15 +3,13 @@
     background-color: #fff !important;
 }
 
-.texto-post {
-    font-family: 'Roboto Mono', sans-serif !important;
-    font-size: 1.6rem;
-    color: #000 !important;
-}
-
 .btnAmarelo {
     border: 2px solid #000 !important;
     background-color: #FFB30F !important;
     font-family: 'Roboto Mono', sans-serif !important;
     color: #000 !important;
+}
+
+.texto {
+    font-family: 'Roboto Mono', sans-serif !important;
 }
